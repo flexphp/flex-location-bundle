@@ -1,0 +1,29 @@
+<?php declare(strict_types=1);
+/*
+ * This file is part of FlexPHP.
+ *
+ * (c) Freddie Gar <freddie.gar@outlook.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+namespace FlexPHP\Bundle\LocationBundle\Domain\DocumentType\UseCase;
+
+use FlexPHP\Bundle\LocationBundle\Domain\DocumentType\DocumentTypeRepository;
+use FlexPHP\Bundle\LocationBundle\Domain\DocumentType\Request\CreateDocumentTypeRequest;
+use FlexPHP\Bundle\LocationBundle\Domain\DocumentType\Response\CreateDocumentTypeResponse;
+
+final class CreateDocumentTypeUseCase
+{
+    private DocumentTypeRepository $documentTypeRepository;
+
+    public function __construct(DocumentTypeRepository $documentTypeRepository)
+    {
+        $this->documentTypeRepository = $documentTypeRepository;
+    }
+
+    public function execute(CreateDocumentTypeRequest $request): CreateDocumentTypeResponse
+    {
+        return new CreateDocumentTypeResponse($this->documentTypeRepository->add($request));
+    }
+}

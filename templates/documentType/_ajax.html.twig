@@ -1,0 +1,18 @@
+{% for _documentType in documentTypes %}
+    <tr>
+        <td>{{ _documentType.id }}</td>
+        <td>{{ _documentType.name }}</td>
+        <td>{% if _documentType.isActive %}{% trans from 'messages' %}label.yes{% endtrans %}{% else %}{% trans from 'messages' %}label.no{% endtrans %}{% endif %}</td>
+        <td class="text-center">
+            <div class="btn-group">
+                <a href="{{ path('flexphp.location.document-types.read', {id: _documentType.id}) }}" class="btn btn-sm btn-outline-light" title="{% trans from 'messages' %}action.read{% endtrans %}">
+                    <i class="fa fa-eye text-dark" aria-hidden="true"></i>
+                </a>
+
+                <a href="{{ path('flexphp.location.document-types.edit', {id: _documentType.id}) }}" class="btn btn-sm btn-outline-light" title="{% trans from 'messages' %}action.edit{% endtrans %}">
+                    <i class="fa fa-edit text-info" aria-hidden="true"></i>
+                </a>
+            </div>
+        </td>
+    </tr>
+{% endfor %}

@@ -10,6 +10,7 @@
         <service id="FlexPHP\Bundle\Location" alias="flexphp.location.bundle" />
 
         <service id="flexphp.location.bundle.currency_controller" class="FlexPHP\Bundle\Location\Controller\CurrencyController" public="true" />
+        <service id="flexphp.location.bundle.document_type_controller" class="FlexPHP\Bundle\Location\DocumentTypeCurrencyController" public="true" />
 
         <prototype namespace="FlexPHP\Bundle\LocationBundle\" resource="../src/*" exclude="../src/{DependencyInjection}">
             <tag name="@router"/>
