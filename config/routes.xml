@@ -26,5 +26,13 @@
     <route id="flexphp.location.payment-methods.edit" controller="flexphp.location.bundle.payment_method_controller::edit" path="/payment-methods/edit/{id}" methods="GET" />
     <route id="flexphp.location.payment-methods.update" controller="flexphp.location.bundle.payment_method_controller::update" path="/payment-methods/update/{id}" methods="PUT" />
     <route id="flexphp.location.payment-methods.delete" controller="flexphp.location.bundle.payment_method_controller::delete" path="/payment-methods/delete/{id}" methods="DELETE" />
+
+    <route id="flexphp.location.countries.index" controller="flexphp.location.bundle.country_controller::index" path="/countries" methods="GET" />
+    <route id="flexphp.location.countries.new" controller="flexphp.location.bundle.country_controller::new" path="/countries/new" methods="GET" />
+    <route id="flexphp.location.countries.create" controller="flexphp.location.bundle.country_controller::create" path="/countries/create" methods="POST" />
+    <route id="flexphp.location.countries.read" controller="flexphp.location.bundle.country_controller::read" path="/countries/{id}" methods="GET" />
+    <route id="flexphp.location.countries.edit" controller="flexphp.location.bundle.country_controller::edit" path="/countries/edit/{id}" methods="GET" />
+    <route id="flexphp.location.countries.update" controller="flexphp.location.bundle.country_controller::update" path="/countries/update/{id}" methods="PUT" />
+    <route id="flexphp.location.countries.delete" controller="flexphp.location.bundle.country_controller::delete" path="/countries/delete/{id}" methods="DELETE" />
 </routes>
 

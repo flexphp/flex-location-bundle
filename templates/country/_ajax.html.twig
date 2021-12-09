@@ -1,0 +1,18 @@
+{% for _country in countries %}
+    <tr>
+        <td>{{ _country.id }}</td>
+        <td>{{ _country.name }}</td>
+        <td>{{ _country.code }}</td>
+        <td class="text-center">
+            <div class="btn-group">
+                <a href="{{ path('flexphp.location.countries.read', {id: _country.id}) }}" class="btn btn-sm btn-outline-light" title="{% trans from 'messages' %}action.read{% endtrans %}">
+                    <i class="fa fa-eye text-dark" aria-hidden="true"></i>
+                </a>
+
+                <a href="{{ path('flexphp.location.countries.edit', {id: _country.id}) }}" class="btn btn-sm btn-outline-light" title="{% trans from 'messages' %}action.edit{% endtrans %}">
+                    <i class="fa fa-edit text-info" aria-hidden="true"></i>
+                </a>
+            </div>
+        </td>
+    </tr>
+{% endfor %}
