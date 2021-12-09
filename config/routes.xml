@@ -3,6 +3,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="flexphp.location.users.index" controller="flexphp.location.bundle.location_controller::index" path="/location" methods="GET" />
+    <route id="flexphp.location.currencies.index" controller="flexphp.location.bundle.currency_controller::index" path="/currencies" methods="GET" />
+    <route id="flexphp.location.currencies.new" controller="flexphp.location.bundle.currency_controller::new" path="/currencies/new" methods="GET" />
+    <route id="flexphp.location.currencies.create" controller="flexphp.location.bundle.currency_controller::create" path="/currencies/create" methods="POST" />
+    <route id="flexphp.location.currencies.read" controller="flexphp.location.bundle.currency_controller::read" path="/currencies/{id}" methods="GET" />
+    <route id="flexphp.location.currencies.edit" controller="flexphp.location.bundle.currency_controller::edit" path="/currencies/edit/{id}" methods="GET" />
+    <route id="flexphp.location.currencies.update" controller="flexphp.location.bundle.currency_controller::update" path="/currencies/update/{id}" methods="PUT" />
+    <route id="flexphp.location.currencies.delete" controller="flexphp.location.bundle.currency_controller::delete" path="/currencies/delete/{id}" methods="DELETE" />
 </routes>
 
