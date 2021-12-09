@@ -18,5 +18,13 @@
     <route id="flexphp.location.document-types.edit" controller="flexphp.location.bundle.document_type_controller::edit" path="/document-types/edit/{id}" methods="GET" />
     <route id="flexphp.location.document-types.update" controller="flexphp.location.bundle.document_type_controller::update" path="/document-types/update/{id}" methods="PUT" />
     <route id="flexphp.location.document-types.delete" controller="flexphp.location.bundle.document_type_controller::delete" path="/document-types/delete/{id}" methods="DELETE" />
+
+    <route id="flexphp.location.payment-methods.index" controller="flexphp.location.bundle.payment_method_controller::index" path="/payment-methods" methods="GET" />
+    <route id="flexphp.location.payment-methods.new" controller="flexphp.location.bundle.payment_method_controller::new" path="/payment-methods/new" methods="GET" />
+    <route id="flexphp.location.payment-methods.create" controller="flexphp.location.bundle.payment_method_controller::create" path="/payment-methods/create" methods="POST" />
+    <route id="flexphp.location.payment-methods.read" controller="flexphp.location.bundle.payment_method_controller::read" path="/payment-methods/{id}" methods="GET" />
+    <route id="flexphp.location.payment-methods.edit" controller="flexphp.location.bundle.payment_method_controller::edit" path="/payment-methods/edit/{id}" methods="GET" />
+    <route id="flexphp.location.payment-methods.update" controller="flexphp.location.bundle.payment_method_controller::update" path="/payment-methods/update/{id}" methods="PUT" />
+    <route id="flexphp.location.payment-methods.delete" controller="flexphp.location.bundle.payment_method_controller::delete" path="/payment-methods/delete/{id}" methods="DELETE" />
 </routes>
 
