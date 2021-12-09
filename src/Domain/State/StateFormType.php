@@ -7,11 +7,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace FlexPHP\Bundle\LocationBundle\Domain\City;
+namespace FlexPHP\Bundle\LocationBundle\Domain\State;
 
 use App\Form\Type\Select2Type;
-use FlexPHP\Bundle\LocationBundle\Domain\State\Request\ReadStateRequest;
-use FlexPHP\Bundle\LocationBundle\Domain\State\UseCase\ReadStateUseCase;
+use FlexPHP\Bundle\LocationBundle\Domain\Country\Request\ReadCountryRequest;
+use FlexPHP\Bundle\LocationBundle\Domain\Country\UseCase\ReadCountryUseCase;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type as InputType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,61 +21,61 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-final class CityFormType extends AbstractType
+final class StateFormType extends AbstractType
 {
-    private ReadStateUseCase $readStateUseCase;
+    private ReadCountryUseCase $readCountryUseCase;
 
     private UrlGeneratorInterface $router;
 
     public function __construct(
-        ReadStateUseCase $readStateUseCase,
+        ReadCountryUseCase $readCountryUseCase,
         UrlGeneratorInterface $router
     ) {
-        $this->readStateUseCase = $readStateUseCase;
+        $this->readCountryUseCase = $readCountryUseCase;
         $this->router = $router;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $stateIdModifier = function (FormInterface $form, ?int $value): void {
+        $countryIdModifier = function (FormInterface $form, ?int $value): void {
             $choices = null;
 
             if (!empty($value)) {
-                $response = $this->readStateUseCase->execute(new ReadStateRequest($value));
+                $response = $this->readCountryUseCase->execute(new ReadCountryRequest($value));
 
-                if ($response->state->id()) {
-                    $choices = [$response->state->name() => $value];
+                if ($response->country->id()) {
+                    $choices = [$response->country->name() => $value];
                 }
             }
 
-            $form->add('stateId', Select2Type::class, [
-                'label' => 'label.stateId',
+            $form->add('countryId', Select2Type::class, [
+                'label' => 'label.countryId',
                 'required' => true,
                 'attr' => [
-                    'data-autocomplete-url' => $this->router->generate('flexphp.location.cities.find.states'),
+                    'data-autocomplete-url' => $this->router->generate('flexphp.location.states.find.countries'),
                 ],
                 'choices' => $choices,
                 'data' => $value,
             ]);
         };
 
-        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($stateIdModifier) {
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($countryIdModifier) {
             if (!$event->getData()) {
                 return null;
             }
 
-            $stateIdModifier($event->getForm(), $event->getData()->stateId());
+            $countryIdModifier($event->getForm(), $event->getData()->countryId());
         });
 
-        $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) use ($stateIdModifier): void {
-            $stateIdModifier($event->getForm(), (int)$event->getData()['stateId'] ?: null);
+        $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) use ($countryIdModifier): void {
+            $countryIdModifier($event->getForm(), (int)$event->getData()['countryId'] ?: null);
         });
 
-        $builder->add('stateId', Select2Type::class, [
-            'label' => 'label.stateId',
+        $builder->add('countryId', Select2Type::class, [
+            'label' => 'label.countryId',
             'required' => true,
             'attr' => [
-                'data-autocomplete-url' => $this->router->generate('flexphp.location.cities.find.states'),
+                'data-autocomplete-url' => $this->router->generate('flexphp.location.states.find.countries'),
             ],
         ]);
         $builder->add('name', InputType\TextType::class, [
@@ -97,7 +97,7 @@ final class CityFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'translation_domain' => 'city',
+            'translation_domain' => 'state',
         ]);
     }
 }

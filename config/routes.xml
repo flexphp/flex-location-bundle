@@ -35,6 +35,15 @@
     <route id="flexphp.location.countries.update" controller="flexphp.location.bundle.country_controller::update" path="/countries/update/{id}" methods="PUT" />
     <route id="flexphp.location.countries.delete" controller="flexphp.location.bundle.country_controller::delete" path="/countries/delete/{id}" methods="DELETE" />
 
+    <route id="flexphp.location.states.index" controller="flexphp.location.bundle.state_controller::index" path="/states" methods="GET" />
+    <route id="flexphp.location.states.new" controller="flexphp.location.bundle.state_controller::new" path="/states/new" methods="GET" />
+    <route id="flexphp.location.states.create" controller="flexphp.location.bundle.state_controller::create" path="/states/create" methods="POST" />
+    <route id="flexphp.location.states.read" controller="flexphp.location.bundle.state_controller::read" path="/states/{id}" methods="GET" />
+    <route id="flexphp.location.states.edit" controller="flexphp.location.bundle.state_controller::edit" path="/states/edit/{id}" methods="GET" />
+    <route id="flexphp.location.states.update" controller="flexphp.location.bundle.state_controller::update" path="/states/update/{id}" methods="PUT" />
+    <route id="flexphp.location.states.delete" controller="flexphp.location.bundle.state_controller::delete" path="/states/delete/{id}" methods="DELETE" />
+    <route id="flexphp.location.states.find.countries" controller="flexphp.location.bundle.state_controller::findCountry" path="/states/find-countries" methods="POST" />
+
     <route id="flexphp.location.cities.index" controller="flexphp.location.bundle.city_controller::index" path="/cities" methods="GET" />
     <route id="flexphp.location.cities.new" controller="flexphp.location.bundle.city_controller::new" path="/cities/new" methods="GET" />
     <route id="flexphp.location.cities.create" controller="flexphp.location.bundle.city_controller::create" path="/cities/create" methods="POST" />
@@ -42,5 +51,6 @@
     <route id="flexphp.location.cities.edit" controller="flexphp.location.bundle.city_controller::edit" path="/cities/edit/{id}" methods="GET" />
     <route id="flexphp.location.cities.update" controller="flexphp.location.bundle.city_controller::update" path="/cities/update/{id}" methods="PUT" />
     <route id="flexphp.location.cities.delete" controller="flexphp.location.bundle.city_controller::delete" path="/cities/delete/{id}" methods="DELETE" />
+    <route id="flexphp.location.cities.find.states" controller="flexphp.location.bundle.city_controller::findState" path="/states/find-states" methods="POST" />
 </routes>
 

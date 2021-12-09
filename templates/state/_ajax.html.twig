@@ -1,0 +1,19 @@
+{% for _state in states %}
+    <tr>
+        <td>{{ _state.id }}</td>
+        <td>{{ _state.countryIdInstance.name|default('-') }}</td>
+        <td>{{ _state.name }}</td>
+        <td>{{ _state.code }}</td>
+        <td class="text-center">
+            <div class="btn-group">
+                <a href="{{ path('flexphp.location.states.read', {id: _state.id}) }}" class="btn btn-sm btn-outline-light" title="{% trans from 'messages' %}action.read{% endtrans %}">
+                    <i class="fa fa-eye text-dark" aria-hidden="true"></i>
+                </a>
+
+                <a href="{{ path('flexphp.location.states.edit', {id: _state.id}) }}" class="btn btn-sm btn-outline-light" title="{% trans from 'messages' %}action.edit{% endtrans %}">
+                    <i class="fa fa-edit text-info" aria-hidden="true"></i>
+                </a>
+            </div>
+        </td>
+    </tr>
+{% endfor %}

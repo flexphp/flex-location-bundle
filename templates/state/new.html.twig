@@ -1,4 +1,4 @@
-{% trans_default_domain 'country' %}
+{% trans_default_domain 'state' %}
 {% extends 'form/layout.html.twig' %}
 
 {% block title %}{% trans %}title.new{% endtrans %}{% endblock %}
@@ -10,14 +10,14 @@
                 {% trans %}title.new{% endtrans %}
             </h3>
             <div class="toolbar ml-auto">
-                <a href="{{ path('flexphp.location.countries.index') }}" class="btn btn-outline-secondary">
+                <a href="{{ path('flexphp.location.states.index') }}" class="btn btn-outline-secondary">
                     <i class="fa fa-list-ol" aria-hidden="true"></i>
                     <span class="btn-text">{% trans from 'messages' %}action.list{% endtrans %}</span>
                 </a>
             </div>
         </div>
 
-        {{ form_start(form, {'action': path('flexphp.location.countries.create')}) }}
+        {{ form_start(form, {'action': path('flexphp.location.states.create')}) }}
             <div class="card-body">
                 {{ form_widget(form) }}
             </div>
@@ -33,5 +33,5 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('bundles/flexphplocation/js/countries.js') }}"></script>
+    <script src="{{ asset('bundles/flexphplocation/js/states.js') }}"></script>
 {% endblock %}

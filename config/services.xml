@@ -13,7 +13,8 @@
         <service id="flexphp.location.bundle.document_type_controller" class="FlexPHP\Bundle\LocationBundle\Controller\DocumentTypeController" public="true" />
         <service id="flexphp.location.bundle.payment_method_controller" class="FlexPHP\Bundle\LocationBundle\Controller\PaymentMethodController" public="true" />
         <service id="flexphp.location.bundle.country_controller" class="FlexPHP\Bundle\LocationBundle\Controller\CountryController" public="true" />
-        <service id="flexphp.location.bundle.city_controller" class="FlexPHP\Bundle\LocationBundle\Controller\CountryController" public="true" />
+        <service id="flexphp.location.bundle.state_controller" class="FlexPHP\Bundle\LocationBundle\Controller\StateController" public="true" />
+        <service id="flexphp.location.bundle.city_controller" class="FlexPHP\Bundle\LocationBundle\Controller\CityController" public="true" />
 
         <prototype namespace="FlexPHP\Bundle\LocationBundle\" resource="../src/*" exclude="../src/{DependencyInjection}">
             <tag name="@router"/>
